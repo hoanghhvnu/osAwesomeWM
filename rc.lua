@@ -37,7 +37,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -69,7 +69,7 @@ layouts =
 -- {{{ Tags
  -- Define a tag table which will hold all screen tags.
  tags = {
-   names  = { "File", "Chat", "Dict", 4, 5, "Music", "Browser", "Emacs", "Term" },
+   names  = { "Browser", "IM", "Dict", 4, 5, "6", "File", "Editor", "Term" },
    layout = { layouts[3], layouts[3], layouts[7], layouts[1], layouts[1],
               layouts[3], layouts[7], layouts[8], layouts[3]
  }}
@@ -335,14 +335,16 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     -- Set Firefox to always map on tags number 7 of screen 1.
     { rule = { instance = "nautilus" },
-      properties = { tag = tags[1][1] } },
-    { rule = { instance = "xterm" },
+      properties = { tag = tags[1][7] } },
+    { rule = { instance = "urxvt" },
       properties = { tag = tags[1][9] } },
     { rule = { instance = "goldendict" },
       properties = { tag = tags[1][3] } },
     { rule = { instance = "google-chrome" },
-      properties = { tag = tags[1][7] } },
+      properties = { tag = tags[1][1] } },
     { rule = { Class = Pidgin, instance = "pidgin" },
+      properties = { tag = tags[1][2] } },
+    { rule = { instance= "skype" },
       properties = { tag = tags[1][2] } },
     { rule = { instance = "emacs" },
       properties = { tag = tags[1][8] } },
